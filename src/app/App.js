@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+// @flow
+/* eslint-disable react/jsx-filename-extension */
 
-import logo from '../logo.svg';
+import React from 'react';
+import { Provider } from 'react-redux';
 
 import './App.css';
+import logo from '../logo.svg';
 import RecipeList from '../recipes/RecipeList';
+import store from './store';
 
-class App extends Component {
-  render() {
-    return (
+function App() {
+  return (
+    <Provider store={store}>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -20,8 +24,8 @@ class App extends Component {
         </header>
         <RecipeList />
       </div>
-    );
-  }
+    </Provider>
+  );
 }
 
 export default App;

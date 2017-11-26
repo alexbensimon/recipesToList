@@ -15,6 +15,11 @@
   margin-top: 20px;
 }
 
+.recipe-item-add-button {
+  margin-right: 20px;
+  font-size: 20px;
+}
+
 .recipe-item-name {
   color: #222;
 }
