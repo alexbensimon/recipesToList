@@ -3,26 +3,32 @@
 import React from 'react';
 
 import './recipes.css';
-import type { Ingredient } from '../app/types';
+import type { Recipe } from '../app/types';
 
 type Props = {
-  name: string,
-  imageName: string,
-  ingredients: Ingredient[],
+  ...Recipe,
+  chooseRecipe: Function,
   addIngredients: Function,
 };
 
-export default function RecipeItem({ name, imageName, ingredients, addIngredients }: Props) {
+export default function RecipeItem(props: Props) {
   /* eslint-disable import/no-dynamic-require */
   // eslint-disable-next-line global-require
-  const image = require(`../resources/images/${imageName}`);
+  const image = require(`../resources/images/${props.imageName}`);
   return (
     <div className="recipe-item">
-      <button onClick={() => addIngredients(ingredients)} className="recipe-item-add-button">
+      <button
+        onClick={() => {
+          props.addIngredients(props.ingredients);
+          props.chooseRecipe(props.id);
+        }}
+        className="recipe-item-add-button"
+        disabled={props.chosen}
+      >
         +
       </button>
-      <h3 className="recipe-item-name">{name}</h3>
-      <img src={image} alt={imageName} className="recipe-item-image" />
+      <h3 className="recipe-item-name">{props.name}</h3>
+      <img src={image} alt={props.imageName} className="recipe-item-image" />
     </div>
   );
 }
