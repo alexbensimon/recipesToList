@@ -6,8 +6,9 @@ import { Provider } from 'react-redux';
 
 import './App.css';
 import logo from '../logo.svg';
-import RecipeList from '../recipes/RecipeList';
 import store from './store';
+import RecipeList from '../recipes/RecipeList';
+import ShoppingList from '../shopping/ShoppingList';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           </h1>
         </header>
         <RecipeList />
+        <ShoppingList />
       </div>
     </Provider>
   );
