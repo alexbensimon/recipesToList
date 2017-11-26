@@ -18,4 +18,5 @@ to buy!
 ## TODOs
 
 * Handle different units
+* Add some tests
 * Add component list keys
